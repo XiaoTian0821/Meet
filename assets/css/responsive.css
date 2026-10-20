@@ -1,0 +1,69 @@
+/* =========================================================
+   ConnectMeet — responsive overrides
+   ========================================================= */
+
+/* ---------- tablet (<= 900px) ---------- */
+@media (max-width: 900px) {
+  .cm-hero { grid-template-columns: 1fr; }
+  .cm-hero-side { order: -1; }
+  .cm-lobby-body { grid-template-columns: 1fr; }
+  .cm-preview-col { order: 1; }
+  .cm-lobby-controls { order: 0; }
+  .cm-preview { min-height: 200px; }
+
+  .cm-grid.grid-many { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,1fr); }
+
+  .cm-panel { width: 100%; }
+  .cm-controls { gap: .35rem; }
+  .cm-ctl { width: 46px; height: 46px; font-size: 1rem; }
+}
+
+/* ---------- phone (<= 600px) ---------- */
+@media (max-width: 600px) {
+  .cm-topbar { padding: .7rem 1rem; }
+  .cm-hero { padding: 1rem; }
+  .cm-hero-card, .cm-hero-side { padding: 1rem; }
+  .cm-actions { flex-direction: column; align-items: stretch; }
+  .cm-join { flex-direction: column; }
+  .cm-join input { width: 100%; }
+  .cm-join .cm-btn { width: 100%; }
+
+  /* lobby: preview on top, controls below */
+  .cm-preview { min-height: 160px; aspect-ratio: 16/9; }
+  .cm-lowerbar { flex-direction: column; align-items: stretch; }
+  .cm-lowerbar .cm-ctl { align-self: center; }
+  .cm-lowerbar .cm-join-btn { width: 100%; padding: .8rem; }
+  .cm-lobby-controls .cm-field { flex: 1 1 100%; margin-bottom: .6rem; }
+
+  /* meeting grid: 1x2 / stacked */
+  .cm-grid { gap: 4px; padding: 4px; }
+  .cm-grid.grid-1 { grid-template-columns: 1fr; }
+  .cm-grid.grid-2 { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  .cm-grid.grid-3, .cm-grid.grid-4,
+  .cm-grid.grid-5, .cm-grid.grid-many {
+    grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+  }
+
+  .cm-tile-name { font-size: .68rem; padding: .1rem .35rem; }
+  .cm-tile-avatar, .cm-avatar-initial { width: 48px; height: 48px; font-size: 1.2rem; }
+  .cm-badge { width: 20px; height: 20px; font-size: .65rem; }
+
+  .cm-controls { padding: .5rem; gap: .3rem; }
+  .cm-ctl { width: 44px; height: 44px; font-size: .95rem; }
+  .cm-ctl-leave { width: auto; padding: 0 .9rem; height: 44px; }
+
+  .cm-captions { max-width: 90%; font-size: .9rem; bottom: 5rem; }
+  .cm-reaction-layer .cm-reaction { font-size: 1.4rem; }
+
+  .cm-panel { top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 60dvh;
+    flex-direction: column; transform: translateY(100%); }
+  .cm-panel.open { transform: none; }
+  .cm-panel-tabs { flex-direction: row; }
+
+  .cm-toasts { left: 1rem; right: 1rem; max-width: none; }
+}
+
+/* ---------- large desktop (>= 1400px) ---------- */
+@media (min-width: 1400px) {
+  .cm-grid.grid-many { grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,1fr); }
+}

@@ -1,0 +1,20 @@
+# ConnectMeet .gitignore
+# Secrets / credentials
+config/database.php
+config/*.local.php
+.env
+
+# PHP
+*.php~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+.cache/
+
+# Node (in case tools are added later)
+node_modules/
+package-lock.json

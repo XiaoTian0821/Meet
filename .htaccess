@@ -1,0 +1,29 @@
+RewriteEngine On
+# Protect configuration & credentials from direct web access.
+RewriteRule ^(config/|scripts/|includes/|database/|tests/) - [F,L]
+
+# Deny access to dotfiles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Do not serve .sql
+<FilesMatch "\.sql$">
+  Require all denied
+</FilesMatch>
+
+# Request-size cap is enforced in PHP (cm_read_json_body caps the body at 1 MB).
+# (SetLimitRequestBody is not available in this Apache 2.4 build.)
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Block access to hidden/system files
+<FilesMatch "\.(bak|ini|log|env)$">
+  Require all denied
+</FilesMatch>
